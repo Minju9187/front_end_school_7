@@ -84,10 +84,10 @@ h1{
     border : 4px solid rgba(117,156,255,1);
     color : rgba(117,156,255,1);
     font-weight : 700;
-    background-image: url(./images/Vector.png);
+    background-image: url(../images/Vector.png);
     background-repeat: no-repeat;
     background-size: 20px;
-    background-position: 335px 50%;
+    background-position: calc(100% - 14px) 50%;
 }
 
 .main .box:hover{

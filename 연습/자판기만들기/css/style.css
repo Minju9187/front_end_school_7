@@ -1,203 +1,298 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-body, h1, h2, p, input{
-    margin : initial;
-    padding : initial;
+/* reset ---------------------- */
+body,
+h1,
+h2,
+p,
+ul,
+button {
+    padding: 0;
+    margin: 0;
 }
 
-input,button{
-    font : inherit;
-    border : none;
-    
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: inherit;
 }
 
+ul,
+li {
+    list-style: none;
+}
+input {
+    font: inherit;
+}
+
+button {
+    font: inherit;
+    border: 0;
+    background: none;
+}
+
+button:enabled {
+    cursor: pointer;
+}
+img {
+    vertical-align: top;
+}
+
+/* 공통 CSS */
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+/* CSS 전용 */
 body{
-    background-color: rgba(234, 232, 254, 1);
-    font-family : 'Noto Sans KR';
+    background-color: #eae8fe;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-.flag{
-    width : 386px;
-    height : 164.12px;
-    margin : 0 auto;
+h1{
+    text-align: center;
 }
 
-.main-box{
-    width : 748px;
-    height : 545px;
-    margin : 43px auto auto;
-    display : flex;
+h1 img{
+    max-width : 50%;
 }
 
-.box1{
-    width : 360px;
-    height : 545px;
-    background-color: white;
-}
-
-.box1 .menu{
-    width : 306px;
-    height : 270px;
+main{
     display : grid;
-    margin : 31px auto auto;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    width : 748px;
+    max-width: 100%;
+}
+
+@media (min-width : 749px){
+    main{
+        grid-template-areas:
+        'section1 section2'
+        'section1 section3';
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 50px auto;
+        gap: 20px 28px;
+        margin: 67px auto;
+    }
+}
+/* 768까지 적용하겠다. */
+@media (max-width: 748px) {
+    body{
+        background-color: white;
+    }
+    main {
+        grid-template-areas:
+        'section1'
+        'section2'
+        'section3';
+        margin: 18px auto;
+    }
+}
+
+.section1 {
+    background-color: white;
+    grid-area: section1;
+    padding: 30px 27px;
+}
+
+.section2 {
+    background-color: white;
+    grid-area: section2;
+    padding : 9px 27px;
+}
+
+.section3 {
+    background-color: white;
+    grid-area: section3;
+    padding : 25px 27px;
+
+    display : flex;
+    flex-direction: column;
+}
+
+.cola-list{
+    display : grid;
+    grid-template-columns: repeat(3,1fr);
     gap : 12px;
 }
 
-.box1 .menu>div{
-    text-align: center;
-    font-family: 'Noto Sans KR';
-    font-weight: 500;
-
-    border-radius: 10px;
-    box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
-}
-.main-box .box1 .menu .cola>img{
-    width : 36px;
-    height : 65px;
-    margin-top : 11px;
-}
-.cola-text{ 
-    font-size: 9px;
-}
-.cola-charge{
-    width : 70px;
-    height : 22px;
-    margin : 7px auto auto;
-
-    background-color: rgba(99,39,254,1);
-    border-radius: 50px;
-    font-size: 12px;
-    line-height: 21px;
-    color : white;
-}
-
-
-.box1 .menu>div:nth-child(2)>img{
-    position : relative;
-}
-
-.box1 .menu>div:nth-child(1){
-    outline : 3px solid rgba(99,39,254,1);
-}
-
-.box1 .menu>div:nth-child(2){
-    position : relative;
-    background-color: rgba(0,0,0,0.8);
-    z-index: 10;
-}
-
-.box1 .menu>div:nth-child(5){
-    outline : 3px solid rgba(99,39,254,1);
-}
-.wrap1{
+[class^='btn']{
     width : 100%;
-    margin-top : 20px;
-    display : flex;
-}
-.wrap1:nth-child(3){
-    margin-top : 12px;
-}
-.wrap1:nth-child(4){
-    margin-top : 12px;
-}
-
-.charge{
-    width : 200px;
-    height : 33px;
-    background-color: rgba(234,232,254,1);
-    margin-left : 27px;
-    padding : 0 10px;
-    line-height : 30px;
-    font-weight: 500;
-    box-sizing: border-box;
-
-    display : flex;
-    justify-content: space-between;
+    background-color: white;
     border-radius: 5px;
-}
-
-.btn{
-    margin-left : 12px;
-    width : 94px;
-    height : 32px;
-    border-radius: 5px;
-    box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
-
+    min-height: 32px;
     font-size: 13px;
-    font-weight: 500;
-    text-align: center;
-    line-height: 30px;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
 }
-.box1 input{
-    margin-left : 27px;
-    padding-left : 6px;
-    width : 200px;
-    height : 33px;
-    border : 1px solid rgba(189, 189, 189, 1);
-    border-radius: 5px;
-    box-sizing: border-box;
+.btn-cola{
+    border-radius: 10px;
+    padding : 11px 12px 9px;
+}
+.btn-cola img,
+.cola-name,
+.cola-price{
+    display : block;
 }
 
-.select-box{
-    margin-left : 27px;
-    width : 200px;
-    height : 106px;
-    background-color: rgba(234,232,254,1);
-    border-radius: 5px;
-    border : 1px solid rgba(189, 189, 189, 1);
+.btn-cola img{
+    width : 36px;
+    margin : 0 auto;
 }
-.get{
-    margin-left : 12px;
-    width : 94px;
-    height : 106px;
-    background-color: rgba(99,39,254,1);
+.cola-name{
+    font-size : 9px;
+    margin: 6px 0 7px 0;
+}
+
+.cola-price{
+    font-size : 12px;
+    background-color: #6327fe;
+    color : white;
+    padding : 5px 0;
+    font-weight : normal;
+    border-radius: 30px;
+}
+
+.btn-cola.on{
+    box-shadow: 0 0 0 4px #6327fe;
+}
+
+.btn-cola:disabled{
+    color: inherit;
+    position : relative;
+    overflow : hidden;
+}
+
+.btn-cola:disabled::after{
+    content : '';
+    display : block;
+    width : 100%;
+    height : 100%;
+    background-color: rgba(0,0,0,0.8);
+    position : absolute;
+    top : 0;
+    left : 0;
+}
+
+.soldout{
+    color : #eae8fe;
+    font-size : 14px;
+
+    z-index:10;
+    border : 4px double #eae8fe;
+    position : absolute;
+    width : 45px;
+    top : 50%;
+    left : 50%;
+    transform : translate(-50%, -50%) rotate(-18deg);
+}
+
+.container{
+    display : grid;
+    grid-template-columns: auto calc((100% - (12px * 2))/3);
+    grid-template-rows: 32px 32px 106px;
+    gap : 12px;
+    margin-top : 20px;
+}
+
+.bg-box{
+    background-color: #eae8fe;
+    height : 32px;
+    padding : 0 10px;
     border-radius: 5px;
-    
-    font-weight: 700;
+
+    display : flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size : 14px;
+}
+
+#input-money{
+    border : 1px solid #bdbdbd;
+    height : 32px;
+    width : 100%;
+    padding : 6px;
+    box-sizing : border-box;
+    border-radius: 5px;
+}
+
+#input-money::placeholder{
+    color : #bdbdbd;
+    font-size : 13px;
+}
+
+.section2 .bg-box p{
+    font-weight : 700;
+}
+
+.get-list{
+    background-color: #eae8fe;
+    border:1px solid #bdbdbd;
+    border-radius: 5px;
+    padding : 12px;
+
+    overflow : auto;
+}
+
+.get-list li{
+    background-color: white;
+    display : flex;
+    align-items: center;
+    gap : 10px;
+
+    padding : 0 8px 0 10px;
+    height : 46px;
+    border-radius: 5px;
+
+    font-size : 9px;
+}
+
+.get-list li ~ li{
+    margin-top : 6px;
+}
+
+.get-list li img{
+    width : 18px;
+}
+
+.get-list li strong{
+    margin-left : auto;
+    width : 30px;
+    height : 30px;
+    border : 1px solid #bdbdbd;
+    border-radius: 5px;
+    font-size: 14px;
+
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section3 .get-list{
+    flex-grow : 1;
+    flex-shrink: 364px;
+    flex-shrink:0;
+}
+
+.btn-get{
+    background-color: #6327fe;
     color : white;
 }
 
-.box23{
-    margin-left : 28px;
-    width : 360px;
-} 
-
-.box2{
-    height : 50px;
-    background-color: white;
+.section3 h2{
+    text-align: center;
+    margin-bottom : 13px;
 }
 
-.box23 .box2 .charge2{
-    /* margin : 9px auto auto; */
-    width : 306px;
-    height : 32px;
-}
-.box3{
-    margin-top : 20px;
-    height :474px;
-    background-color: white;
-}
-
-.get-text{
-    width : 68px;
-    height : 20px;
-    background-color: yellow;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.get-cola{
-    margin : 13px auto 0;
-    width : 306px;
-    height : 364px;
-    background-color: rgba(234,232,254,1);
-    border-radius: 5px;
-    border : 1px solid rgba(189, 189, 189, 1);
-}
-
-.total{
+.total-price{
+    font-size: 12px;
     text-align: right;
-    background-color: aqua;
+    margin-top : 8px;
 }
